@@ -1,7 +1,6 @@
 package javaFundamentals;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Timer;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class task2 {
@@ -16,15 +15,26 @@ public class task2 {
         System.out.println("Enter searching number");
         int searchingNumber = scanner.nextInt();
         int array[] = new int[arraySize];
+        boolean isNumberInArray;
 
         for (int i = 0; i < arraySize; i++)
             array[i] = ThreadLocalRandom.current().nextInt();
 
         Arrays.sort(array);
 
-        System.out.println(regulerSearching(array, searchingNumber));
-        System.out.println(binarySearching(array, 0, arraySize, searchingNumber));
+        long startTime = System.nanoTime();
+        isNumberInArray = regulerSearching(array, searchingNumber);
+        long endTime   = System.nanoTime();
+        long totalTime = (endTime - startTime)/1000000000;
+        System.out.println(totalTime + " seconds\n");
+        System.out.println(isNumberInArray + "\n");
 
+        startTime = System.nanoTime();
+        isNumberInArray = binarySearching(array, 0, arraySize, searchingNumber);
+        endTime   = System.nanoTime();
+        totalTime = (endTime - startTime)/1000000000;
+        System.out.println(totalTime + " seconds\n");
+        System.out.println(isNumberInArray + "\n");
     }
 
     private static boolean regulerSearching(int[] array, int searchingNumber){

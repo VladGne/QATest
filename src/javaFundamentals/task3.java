@@ -1,32 +1,29 @@
 package javaFundamentals;
-
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class task3 {
     // Sort random array (number of arguments should be taken from in the console) of integer numbers
+
     public static void main(String args[]){
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter array size");
         int arraySize = scanner.nextInt();
+
         int arrays[][] = new int[3][arraySize];
         for (int j = 0; j < 3; j++){
             for (int i = 0; i < arraySize; i++)
                 arrays[j][i] = ThreadLocalRandom.current().nextInt();
         }
 
-
-        Arrays.sort(array);
-
-        System.out.println(regulerSearching(array, searchingNumber));
-        System.out.println(binarySearching(array, 0, arraySize, searchingNumber));
-
+        insertionSort(arrays[0]);
+        bubbleSort(arrays[1]);
+        selectionSort(arrays[2]);
     }
 
-    void InsertionSort(int arr[]) {
+    static void insertionSort(int arr[]) {
 
         int j;
         for (int i = 1; i < arr.length; i++) {
@@ -41,7 +38,7 @@ public class task3 {
         }
     }
 
-    void bubbleSort(int[] arr) {
+    static void bubbleSort(int[] arr) {
 
         boolean swapped = true;
         for(int i = 0; i < arr.length-1; i++) {
@@ -60,7 +57,7 @@ public class task3 {
         }
     }
 
-    void SelectionSort(int arr[]) {
+    static void selectionSort(int arr[]) {
 
         for(int k = 0; k < arr.length-1; k++) {
             int min_idx = k;
@@ -74,5 +71,4 @@ public class task3 {
             arr[k] = temp;
         }
     }
-
 }
