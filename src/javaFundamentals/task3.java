@@ -23,52 +23,59 @@ public class task3 {
         selectionSort(arrays[2]);
     }
 
-    static void insertionSort(int arr[]) {
+    static void insertionSort(int array[]) {
 
-        int j;
-        for (int i = 1; i < arr.length; i++) {
-            j = i;
-            while (j > 0 && arr[j - 1] > arr[j]) {
-                //swap
-                int temp = arr[j];
-                arr[j] = arr[j - 1];
-                arr[j - 1] = temp;
-                j = j - 1;
-            }
-        }
-    }
-
-    static void bubbleSort(int[] arr) {
-
-        boolean swapped = true;
-        for(int i = 0; i < arr.length-1; i++) {
-            swapped = false;
-
-            for(int j = 0; j < arr.length-i-1; j++) {
-                if(arr[j] > arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                    swapped = true;
+        if (array.length > 0){
+            int j;
+            for (int i = 1; i < array.length; i++) {
+                j = i;
+                while (j > 0 && array[j - 1] > array[j]) {
+                    //swap
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                    j = j - 1;
                 }
             }
-            if(swapped == false)
-                break;
         }
     }
 
-    static void selectionSort(int arr[]) {
+    static void bubbleSort(int[] array) {
 
-        for(int k = 0; k < arr.length-1; k++) {
-            int min_idx = k;
-            for(int j = k+1; j < arr.length; j++)
-                if (arr[j] < arr[min_idx])
-                    min_idx = j;
+        if(array.length > 0){
+            boolean swapped;
+            for(int i = 0; i < array.length-1; i++) {
+                swapped = false;
 
-            //swap
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[k];
-            arr[k] = temp;
+                for(int j = 0; j < array.length-i-1; j++) {
+                    if(array[j] > array[j+1]) {
+                        int temp = array[j];
+                        array[j] = array[j+1];
+                        array[j+1] = temp;
+                        swapped = true;
+                    }
+                }
+
+                if(swapped == false)
+                    break;
+            }
+        }
+    }
+
+    static void selectionSort(int array[]) {
+
+        if (array.length > 0){
+            for(int k = 0; k < array.length-1; k++) {
+                int min_id = k;
+                for(int j = k+1; j < array.length; j++)
+                    if (array[j] < array[min_id])
+                        min_id = j;
+
+                //swap
+                int temp = array[min_id];
+                array[min_id] = array[k];
+                array[k] = temp;
+            }
         }
     }
 }
