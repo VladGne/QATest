@@ -5,7 +5,7 @@ class Clock {
     private int minutes;
     private int seconds;
 
-    private final int maxSecondsValue = 60;
+    private final int maxSecondsValue = 59;
     private final int minValue = 0;
     private final int maxHoursValue = 23;
     private final int defaultHoursValue = 12;
@@ -59,14 +59,11 @@ class Clock {
     }
 
     public void tick(){
-
-        if(seconds > maxSecondsValue){
+        if(seconds > maxSecondsValue-1){
             seconds = minValue;
-            minutes++;
 
-            if(minutes > maxSecondsValue){
+            if(minutes > maxSecondsValue-1){
                 minutes = minValue;
-                hours++;
 
                 if(hours > maxHoursValue){
                     hours = minValue;
@@ -89,7 +86,6 @@ class Clock {
     public void tickDown(){
         if(seconds == minValue && (minutes > minValue || hours > minValue)){
             seconds = maxSecondsValue;
-            minutes--;
 
             if(minutes == minValue && hours > minValue){
                 minutes = maxSecondsValue;
