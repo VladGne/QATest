@@ -31,7 +31,7 @@ public class MovableRectangle extends MovablePoint{
     @Override
     public void moveUp() {
         topLeft.moveUp();
-        bottomRight.moveRight();
+        bottomRight.moveUp();
     }
 
     @Override
