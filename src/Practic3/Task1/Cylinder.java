@@ -2,7 +2,7 @@ package Practic3.Task1;
 
 public class Cylinder extends Circle{
     private double height;
-    private double DEFAULT_HEIGHT = 3;
+    private double DEFAULT_HEIGHT = 3.0;
 
     public Cylinder(){
         this.radius = DEFAULT_RADIUS;

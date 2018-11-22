@@ -5,8 +5,7 @@ public class Circle {
     protected double radius;
     protected String colour;
     protected final String DEFAULT_COLOR = "Black";
-    protected final double DEFAULT_RADIUS = 2;
-
+    protected final double DEFAULT_RADIUS = 2.0;
 
     public Circle(){
         this.radius = DEFAULT_RADIUS;
