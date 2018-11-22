@@ -26,6 +26,9 @@ public class MovablePoint implements Movable{
         x += xSpeed;
     }
 
+    public MovablePoint() {
+    }
+
     public MovablePoint(int x, int y, int xSpeed, int ySpeed){
         this.x = x;
         this.y = y;
