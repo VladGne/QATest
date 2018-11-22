@@ -2,25 +2,25 @@ package Practice4.Task1;
 
 public class Demo {
     public static void main(String args[]){
-        MovableRectangle rectangle = new MovableRectangle(1,2,3,4,1,1);
+        MovableRectangle rectangle = new MovableRectangle(1,4,4,1,1,1);
 
         System.out.println("Initialization");
         System.out.println(rectangle);
 
-        System.out.println("\nMove down");
         rectangle.moveDown();
+        System.out.println("\nMove down");
         System.out.println(rectangle);
 
-        System.out.println("\nMove left");
         rectangle.moveLeft();
+        System.out.println("\nMove left");
         System.out.println(rectangle);
 
-        System.out.println("\nMove up");
         rectangle.moveUp();
+        System.out.println("\nMove up");
         System.out.println(rectangle);
 
-        System.out.println("\nMove right");
         rectangle.moveRight();
+        System.out.println("\nMove right");
         System.out.println(rectangle);
     }
 }
