@@ -51,4 +51,14 @@ public class Rectangle extends Shape{
     public String toString() {
         return String.format( "A Rectangle with width=%s and length=%.2f, which is a subclass of %s", width, length, super.toString());
     }
+
+    @Override
+    public double getArea() {
+        return width*length;
+    }
+
+    @Override
+    public boolean isInside(double x, double y) {
+        return Math.abs(y) < width && Math.abs(x) < length;
+    }
 }
