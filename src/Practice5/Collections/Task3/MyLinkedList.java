@@ -53,8 +53,6 @@ public class MyLinkedList<T> {
             System.out.println(elements[i]);
     }
 
-
-
     class Iterator{
 
         int iterator;
@@ -73,6 +71,15 @@ public class MyLinkedList<T> {
 
         public T remove(int elementIndex){
             return MyLinkedList.this.remove(elementIndex);
+        }
+    }
+
+    class Node{
+        T data;
+        T nextNode;
+
+        public Node(T data){
+
         }
     }
 
