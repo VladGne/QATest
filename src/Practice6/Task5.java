@@ -29,6 +29,15 @@ public class Task5 {
         catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+        try {
+           C c =  new C();
+           A a = (A) c;
+            a.throwEx();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
     private static class MyException extends Exception{
