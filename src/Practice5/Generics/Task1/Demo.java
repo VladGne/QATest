@@ -1,6 +1,5 @@
 package Practice5.Generics.Task1;
 
-
 import Practic3.Task1.Circle;
 
 public class Demo {
