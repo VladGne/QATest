@@ -10,13 +10,11 @@ public class Demo {
     public static void main(String args[]){
 
         String testString1 = "txt1";
-        String testString2 = "txt2";
-        String testString3 = "text3";
+        String testString2 = "txt1";
+        String testString3 = "tex2";
 
         System.out.println(compare(testString1,testString1));
         System.out.println(compare(testString1,testString2));
         System.out.println(compare(testString1,testString3));
     }
 }
-
-
