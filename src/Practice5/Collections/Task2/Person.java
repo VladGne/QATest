@@ -1,8 +1,10 @@
 package Practice5.Collections.Task2;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 
-public class Person implements Comparable{
+public class Person implements Comparable<Person>{
     private String name;
     private int age;
 
@@ -33,16 +35,9 @@ public class Person implements Comparable{
     }
 
     @Override
-    public int compareTo(Object object) {
+    public int compareTo(@NotNull Person person) {
 
-       Person person = (Person) object;
-
-       if (this.age == person.age)
-           return 0;
-       else if (this.age > person.age)
-           return 1;
-       else
-           return -1;
+        return  Integer.compare(this.age, person.age);
     }
 
     //public int compare(Person person1, Person person2) {
@@ -71,7 +66,6 @@ public class Person implements Comparable{
                     return false;
             }
         }
-
         return true;
     }
 
@@ -79,10 +73,10 @@ public class Person implements Comparable{
         Arrays.sort(people, new Comparator<Person>(){
             @Override
             public int compare(Person person1, Person person2) {
-                if (person1.getName().equals(person2.getName()))
-                    return  person1.getName().compareTo(person2.getName());
-                else
+                if (person1.getName().compareTo(person2.getName())==0)
                     return  person1.compareTo(person2);
+                else
+                    return  person1.getName().compareTo(person2.getName());
             }
         });
     }
