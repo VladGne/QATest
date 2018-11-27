@@ -9,7 +9,7 @@ public class Task1 {
 
         String testCase= "Word cAT DATA A site Java tExt"; // String expectedString =  "Word DATA A Java";
 
-        String pattern = "\\b[A-Z][A-Za-z]{0,3}[\\s]";
+        String pattern = "\\b[A-Z][A-Za-z]*\\s";
 
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(testCase);
