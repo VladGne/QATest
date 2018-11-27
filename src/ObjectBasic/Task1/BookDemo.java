@@ -19,7 +19,7 @@ public class BookDemo{
         System.out.println("Book name is: " + bookTitle);
 
         Book DevJavaSoft = new Book(bookTitle, Winderand, price);
-        Book.printDetails(DevJavaSoft);
+        DevJavaSoft.printDetails();
 
         try{
             System.out.println(String.format("Enter author fist name: "));
@@ -36,7 +36,7 @@ public class BookDemo{
 
             Author newAuthor = new Author(fistName, lastName);
             Book newBook = new Book(bookTitle, newAuthor, price);
-            Book.printDetails(newBook);
+            newBook.printDetails();
         }
         catch (Exception e){
             System.out.println("Incorrect input: " + e.toString());

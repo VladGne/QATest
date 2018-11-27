@@ -1,85 +1,107 @@
 package Practice5.Collections.Task3;
 
-import java.util.Arrays;
-
 public class MyLinkedList<T> {
 
     private int size = 0;
-    private static final int DEFAULT_CAPACITY = 10;
-    private Object elements[];
+
+    transient Node<T> first;
+    transient Node<T> last;
 
     public MyLinkedList(){
-        this.elements = new Object[DEFAULT_CAPACITY];
-    }
 
-    private void ensureCapacity() {
-        int newSize = elements.length * 2;
-        elements = Arrays.copyOf(elements, newSize);
-    }
+   }
 
     // add en element
     public void add(T element) {
-        if (size == elements.length) {
-            ensureCapacity();
+
+        if (size == 0) {
+          first = new Node(element, null, null);
         }
-        elements[size++] = element;
+        else if (size == 1){
+            last = new Node(element, null, first);
+            first.nextNode = last;
+        }
+        else {
+            last.nextNode = new Node(element, null, last);
+            last = last.nextNode;
+        }
+
+        size++;
     }
 
     // remove an element
-    public T remove(int elementIndex) {
-        if (elementIndex >= size || elementIndex < 0) {
-            throw new IndexOutOfBoundsException("Index: " + elementIndex + ", Size: " + size);
+    public void remove(int elementIndex) {
+
+        Iterator iterator = this.new Iterator();
+        for (int i = 0; i < elementIndex-1; i++){
+            iterator.next();
         }
-        Object item = elements[elementIndex];
-        int numberOfElements = elements.length - ( elementIndex + 1 ) ;
-        System.arraycopy( elements, elementIndex + 1, elements, elementIndex, numberOfElements ) ;
+
+        Node tmp = iterator.iterator.previousNode;
+        iterator.next();
+        tmp.nextNode = iterator.iterator;
+        iterator.iterator.previousNode = tmp;
         size--;
-        return (T) item;
     }
 
     // reverse elements
     public  void revese(){
 
-       for(int i = 0; i < size / 2; i++)
+        Node tmp = first;
+        first = last;
+        first.nextNode = first.previousNode;
+        first.previousNode = null;
+
+        last = tmp;
+        last.previousNode = last.nextNode;
+        last.nextNode = null;
+
+       for(int i = 0; i < size; i++)
         {
-            Object temp = elements[i];
-            elements[i] = elements[size - i - 1];
-            elements[size - i - 1] = temp;
+//            Object temp = elements[i];
+//            elements[i] = elements[size - i - 1];
+//            elements[size - i - 1] = temp;
         }
     }
 
     public void printAll(){
-        for(int i = 0; i < size ; i++)
-            System.out.println(elements[i]);
+
+        Iterator iterator = this.new Iterator();
+        for (int i = 0; i < size; i++){
+            System.out.println(iterator.iterator.data);
+            iterator.next();
+        }
     }
 
     class Iterator{
-
-        int iterator;
+        Node iterator;
 
         public Iterator() {
-            this.iterator = 0;
+            this.iterator = first;
         }
 
         public boolean hasNext(){
-            return  iterator + 1 < size;
+            return  iterator.nextNode != null;
         }
 
         public void next(){
-            iterator++;
+            iterator = iterator.nextNode;
         }
 
-        public T remove(int elementIndex){
-            return MyLinkedList.this.remove(elementIndex);
-        }
+       // public T remove(int elementIndex)
+            //return MyLinkedList.this.remove(elementIndex);
+
     }
 
-    class Node{
+    class Node<T>{
         T data;
-        T nextNode;
+        Node<T> nextNode;
+        Node<T> previousNode;
 
-        public Node(T data){
-
+        public Node(T data, Node<T> next, Node<T> previous){
+            this.data = data;
+            this.nextNode = next;
+            this.previousNode = previous;
         }
     }
 
