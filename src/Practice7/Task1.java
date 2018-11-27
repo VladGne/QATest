@@ -7,15 +7,15 @@ public class Task1 {
 
     public static void main(String args[]){
 
-        String testCase= "Word cAT DATA A site Java tExt"; // String expectedString =  "Word DATA A Java";
+        String testCase= "Word cAT DATA A site Java tExt";
 
-        String pattern = "\\b[A-Z][A-Za-z]*\\s";
+        String regex = "\\b[A-Z][A-Za-z]*\\s";
 
-        Pattern p = Pattern.compile(pattern);
-        Matcher m = p.matcher(testCase);
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(testCase);
 
-        while(m.find()) {
-            System.out.print(testCase.substring(m.start(), m.end()));
+        while(matcher.find()) {
+            System.out.print(testCase.substring(matcher.start(), matcher.end()));
         }
     }
 }

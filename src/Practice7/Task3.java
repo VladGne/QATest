@@ -6,8 +6,9 @@ public class Task3 {
 
         String testCase= "  Removing        Extra Spaces       Between Words in  the             text  ";
 
-        String result = testCase.trim().replaceAll(" +", " ");
+        String regex = " +";
 
+        String result = testCase.trim().replaceAll(regex, " ");
         System.out.print(result);
     }
 }
