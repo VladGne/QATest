@@ -1,6 +1,5 @@
 package Practice5.Collections.Task2;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,12 +19,14 @@ public class Demo {
         people[8] = new Person("AgressiveBot", 2);
         people[9] = new Person("BrokenBot", 3);
 
+        Person[] people1 = people;
+
         System.out.println("initializing:");
         for (Person person : people)
             System.out.println(person.getName() + ' ' + person.getAge());
 
-        Person.compare(people);
-        System.out.println("\nAfter sort:");
+
+        System.out.println("\nAfter compare sort:");
         for (Person person : people)
             System.out.println(person.getName() + ' ' + person.getAge());
 
@@ -34,5 +35,8 @@ public class Demo {
         System.out.println("\nUnique list:");
         for (Person person : personList)
             System.out.println(person.getName() + ' ' + person.getAge());
+
+        System.out.println(Person.isEquals(Arrays.asList(people), personList));
+        System.out.println(Person.isEquals(personList, personList));
     }
 }
