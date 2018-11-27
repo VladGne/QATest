@@ -5,17 +5,8 @@ public class Task7 {
     public static void main(String args[]) {
 
         String testCase = "password wword word Heeeeeeello";
-
-        String pattern = "(.)\\1+";
-        String preperedTestCase  = testCase.replaceAll( pattern, "*");
-
-        String result = "";
-        String[] textArray = preperedTestCase.split(" ");
-
-        for (String string : textArray)
-            if(!string.contains("*"))
-                result += string;
-
+        String pattern = "\\s*\\b[A-Za-z]*(\\w+)\\1+(\\w*)\\b\\s*";
+        String result  = testCase.replaceAll( pattern, "");
         System.out.print(result);
     }
 }
