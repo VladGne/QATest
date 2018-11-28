@@ -17,9 +17,9 @@ public class Task2 {
         Author king = new Author("Stephen", "King");
 
         books.add(new Book("Developing Java Software", winderand, 79.75));
-        books.add(new Book("The dark tower. Part 1 - shooter", king, 60.25));
-        books.add(new Book("The dark tower. Part 2 - three doors", king, 67.5));
-        books.add(new Book("The stand", king, 77.5));
+        books.add(new Book("The dark tower: part 1 - shooter.", king, 60.25));
+        books.add(new Book("The dark tower: part 2 - three doors.", king, 67.5));
+        books.add(new Book("The stand.", king, 77.5));
 
         Book book = books.stream().max(Comparator.comparing(Book::getPrice)).get();
         System.out.println("Book with highest price:");
@@ -32,7 +32,10 @@ public class Task2 {
         double totalPrice = books.stream().mapToDouble(Book::getPrice).sum();
         System.out.println("\nsum of all books prices in the list: " + totalPrice);
 
-        String kingsBooks = books.stream().map(Book::getTitle).collect(Collectors.joining(" "));
+        System.out.println("\n"+king.getAuthorFulName() + "books:");
+        String kingsBooks = books.stream().
+                filter(book1 -> book1.getAuthorFulName().equals(king.getAuthorFulName()))
+                .map(Book::getTitle).collect(Collectors.joining(" "));
         System.out.println(kingsBooks);
     }
 }
