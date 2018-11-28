@@ -46,23 +46,54 @@ public class MyLinkedList<T> {
 
     // reverse elements
     public  void revese(){
+        int swapNumber=0;
+        swapNodes(first,last, swapNumber);
 
-        Node tmp = first;
-        first = last;
-        first.nextNode = first.previousNode;
-        first.previousNode = null;
+        Node tmp = this.last;
+        this.last = this.first;
+        this.first = tmp;
 
-        last = tmp;
-        last.previousNode = last.nextNode;
-        last.nextNode = null;
+//        Node tmp = first;
+//        first = last;
+//        first.nextNode = first.previousNode;
+//        first.previousNode = null;
+//
+//        last = tmp;
+//        last.previousNode = last.nextNode;
+//        last.nextNode = null;
 
-       for(int i = 0; i < size; i++)
-        {
+//       for(int i = 0; i < size; i++)
+//        {
 //            Object temp = elements[i];
 //            elements[i] = elements[size - i - 1];
 //            elements[size - i - 1] = temp;
+//        }
+    }
+
+    public void swapNodes(Node first, Node last, int swapNumber){
+        swapNumber++;
+        Node tmp1 = first;
+        Node tmp2 = last.nextNode;
+        first = last;
+        first.nextNode = first.previousNode;
+        first.previousNode = tmp2;
+
+        tmp2 = tmp1.previousNode;
+        last = tmp1;
+        last.previousNode = last.nextNode;
+        last.nextNode = tmp2;
+
+        if (swapNumber < size/2)
+            swapNodes(last.previousNode, first.nextNode, swapNumber);
+
+        if (first.nextNode.equals(last.previousNode)){
+            first = first.nextNode;
+            tmp1 = first.previousNode;
+            first.previousNode = first.nextNode;
+            first.nextNode = tmp1;
         }
     }
+
 
     public void printAll(){
 
