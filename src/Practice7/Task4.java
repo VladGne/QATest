@@ -7,7 +7,7 @@ public class Task4 {
 
     public static void main(String args[]) {
 
-        String[] testCases = new String[]{"12/12/2012", "31/22/2013", "44/04/2014", "21/55/2500"};
+        String[] testCases = new String[]{"12/12/2012", "31/22/2013", "44/04/2014", "51/55/2500"};
 
         String regex = "((0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[1-2])/([1-9][0-9][0-9][0-9]))";
 

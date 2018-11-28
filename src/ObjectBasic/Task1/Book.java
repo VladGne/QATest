@@ -11,8 +11,23 @@ public class Book {
         this.price = price;
     }
 
-    public static void printDetails(Book book){
-        String authorFullName = String.format("%s %s", book.author.getFistName(), book.author.getLastName());
-        System.out.println(String.format("Book details:\n %s\n %s\n %.2f.", book.title, authorFullName, book.price));
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthorFulName(){
+        return author.getFistName() + " " + author.getLastName();
+    }
+    public Author getAuthor() {
+        return author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void printDetails(){
+        String authorFullName = String.format("%s %s", this.author.getFistName(), this.author.getLastName());
+        System.out.println(String.format("Book details:\n %s\n %s\n %.2f.", this.title, authorFullName, this.price));
     }
 }

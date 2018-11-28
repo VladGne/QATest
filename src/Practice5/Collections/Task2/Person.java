@@ -10,7 +10,7 @@ public class Person implements Comparable<Person>, Comparator<Person>{
 
     public Person() {
         this.name = "Name";
-        this.age = 1;
+        this.age = 21;
     }
 
     public Person(String name, int age) {

@@ -17,6 +17,10 @@ public class Author {
         return lastName;
     }
 
+    public String getAuthorFulName(){
+        return this.getFistName() + " " + this.getLastName();
+    }
+
     public static void printFullName(Author author){
       System.out.println(String.format("Author full name is: %s %s.", author.fistName, author.lastName));
     }
