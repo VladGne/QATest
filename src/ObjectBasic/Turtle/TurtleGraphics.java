@@ -24,10 +24,14 @@ public class TurtleGraphics {
         RIGHT("r"),
         LEFT("l");
 
-        private final String name;
+        private final String COMMAND;
 
-        Direction(String name){
-            this.name = name;
+        Direction(String COMMAND){
+            this.COMMAND = COMMAND;
+        }
+
+        public String getCommand() {
+            return COMMAND;
         }
     }
 
